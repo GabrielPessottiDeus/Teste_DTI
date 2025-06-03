@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import api from '../services/api';
 
-export default function StudentForm({ onAdd }) {   //guarda as informacoes
+export default function StudentForm({ onAdd }) {
   const [name, setName] = useState('');
   const [grades, setGrades] = useState(Array(5).fill(''));
   const [attendance, setAttendance] = useState('');
 
-  const handleSubmit = async (e) => {  //quando o botao de enviar eh clicado
-    e.preventDefault();     //impede o formulario de recarregar a pagina
-    const numericGrades = grades.map(Number);   //transforma as notas em numeros
-    await api.post('/students', {       //evia os dados para o back-end com o POST /students
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const numericGrades = grades.map(Number);
+    await api.post('/students', {
       name,
       grades: numericGrades,
       attendance: Number(attendance)
     });
-    setName('');      //limpa os campos depois do envio
+    setName('');
     setGrades(Array(5).fill(''));
     setAttendance('');
-    onAdd();    //update dos dados no app
+    onAdd();
   };
 
   return (

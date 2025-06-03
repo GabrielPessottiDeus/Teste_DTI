@@ -1,19 +1,19 @@
-import express from 'express';      //framework que cria o servidor HTTP de forma simmples
-import cors from 'cors';            //permite que o front-end converse com o back-end
-import { students } from './data.js';   //pega a lista de alunos de data.js
+import express from 'express';
+import cors from 'cors';
+import { students } from './data.js';
 
-const app = express();      //criamos uma instancia do servidor
-app.use(cors());        //permite que qualquer origem envie requisicoes para o servidor
-app.use(express.json());    //permite que o servidor entenda dados no formato JSON envviados pelo front-end
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.get('/students', (req, res) => {    //pede os alunos, o servidor responde com a lista students e formato json
+app.get('/students', (req, res) => {
     res.json({students});
 });
 
-app.post('/students', (req, res) => {   //recebe os dados de um aluno novo vindo do forulario no React
+app.post('/students', (req, res) => {
     const {name, grades, attendance} = req.body;
     const average = grades.reduce((a, b) => a + b, 0) / grades.length;
-    students.push({name, grades, attendance, average});     //adiciona esse aluno na lista de alunos do servidor
+    students.push({name, grades, attendance, average});
     res.status(201).json({message: 'Student added'});
 });
 
@@ -27,15 +27,15 @@ app.delete('/students/:name', (req, res) => {
     res.status(404).json({error: 'Aluno nao encontrado.'});
 });
 
-app.get('/summary', (req, res) => {     //para mostrar o resumo da turma
+app.get('/summary', (req, res) => {
     if (students.length === 0) {
         return res.json({students: [], averages: [], aboveAvg: [], belowAttendance: []});
     }
 
     const disciplineCount = 5;
-    const averages = Array(disciplineCount).fill(0);    //media da turma por diciplina - cria uma lista com 5 zeros inicialmente para mostrar a media da turma por diciplina
+    const averages = Array(disciplineCount).fill(0);
 
-    for (let i = 0; i < disciplineCount; i++) {     //para cada diciplina, calcula a media da sala
+    for (let i = 0; i < disciplineCount; i++) {
         averages[i] = students.reduce((sum, s) => sum + s.grades[i], 0) / students.length;
     }
 

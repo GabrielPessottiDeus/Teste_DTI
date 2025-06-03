@@ -1,10 +1,10 @@
 import api from '../services/api';
 
 export default function StudentList({ students, onUpdate }) {
-    const removeStudent = async (name) => {     //quando clica no botao de remover
+    const removeStudent = async (name) => {
         try {
-            await api.delete(`/students/${name}`);  //envia um pedido de delete para o beck-end
-            onUpdate();     //atualizar a tela
+            await api.delete(`/students/${name}`);
+            onUpdate();
         } catch (err) {
             alert('Erro ao remover aluno');
         }
