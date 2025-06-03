@@ -31,7 +31,7 @@
 
 ### Requisitos
 
-- Node.js e npm instalados (`sudo dnf install nodejs npm -y` no Fedora)
+- Node.js e npm instalados
 
 ---
 
