@@ -26,8 +26,7 @@ export default function StudentForm({ onAdd }) {
       <input placeholder="Nome" value={name} onChange={e => setName(e.target.value)} required />
       <div className="grades">
         {grades.map((g, i) => (
-          <input key={i} type="number" placeholder={`Nota ${i + 1}`} value={g}
-              onChange={e => {
+          <input key={i} type="number" placeholder={`Nota ${i + 1}`} value={g} onChange={e => {
                 const newGrades = [...grades];
                 newGrades[i] = e.target.value;
                 setGrades(newGrades);
