@@ -71,14 +71,15 @@ npm start
 ```
 student-manager/
 │
-├── backend/             # API REST com Node.js
-│   ├── index.js
+├── backend/
 │   ├── data.js
+│   ├── index.js
 │   └── package.json
 │
-└── frontend/            # Interface com React
+└── frontend/
     ├── src/
     │   ├── App.jsx
+    │   ├── App.css
     │   ├── index.js
     │   ├── index.css
     │   ├── services/
@@ -95,7 +96,7 @@ student-manager/
 ## Premissas e decisões
 
 - Considera-se que o professor pode em algum momento querer remover algum aluno, portanto o projeto inclui um meio de deletar um aluno da lista.
-- Considera-se que o nome do aluno é único (para simplificar a remoção)
+- Atribui-se um ID para cada aluno ao serem criados, de forma a facilitar a procura do aluno quando se deseja remove-lo.
 - Os dados são armazenados apenas em memória (sem banco de dados)
 - A interface foi estilizada apenas com **CSS puro**.
 - Manter o projeto simples, didático e de fácil entendimento.

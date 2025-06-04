@@ -9,6 +9,7 @@ export default function StudentList({ students, onUpdate }) {
             alert('Erro ao remover aluno');
         }
     };
+    //Mostra lista de alunos
     return (
       <div className='student-list'>
         <h2>Alunos</h2>

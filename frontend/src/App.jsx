@@ -22,9 +22,10 @@ function App() {
     fetchData();
   }, []);
 
+  //Interface - fetchData para atualizar os dados quando necessario
   return (
     <div>
-      <h1>Sistema de Notas - Prof. Carlos</h1>
+      <h1>Sistema de Notas</h1>
       <div className='container'>
         <StudentForm onAdd={fetchData} />
         <StudentList students={students} onUpdate={fetchData} />

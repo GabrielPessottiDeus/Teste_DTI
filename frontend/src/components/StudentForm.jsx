@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from '../services/api';
 
 export default function StudentForm({ onAdd }) {
+  //Adicao de cada novo aluno na lista
   const [name, setName] = useState('');
   const [grades, setGrades] = useState(Array(5).fill(''));
   const [attendance, setAttendance] = useState('');
@@ -19,7 +20,7 @@ export default function StudentForm({ onAdd }) {
     setAttendance('');
     onAdd();
   };
-
+  //Formulario para preenchimento de informacoes de cada aluno
   return (
     <form onSubmit={handleSubmit}>
       <input placeholder="Nome" value={name} onChange={e => setName(e.target.value)} required />

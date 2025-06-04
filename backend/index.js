@@ -12,6 +12,7 @@ app.get('/students', (req, res) => {
     res.json({students});
 });
 
+//Recebe os dados inseridos dos alunos e os guarda na lista
 app.post('/students', (req, res) => {
     const {name, grades, attendance} = req.body;
     const average = grades.reduce((a, b) => a + b, 0) / grades.length;
@@ -20,6 +21,7 @@ app.post('/students', (req, res) => {
     res.status(201).json({message: 'Student added'});
 });
 
+//Logica para remocao de alunos da lista usando ID
 app.delete('/students/:id', (req, res) => {
     const {id} = req.params;
     const index = students.findIndex(s => s.id === Number.parseInt(id));
@@ -30,6 +32,7 @@ app.delete('/students/:id', (req, res) => {
     res.status(404).json({error: 'Aluno nao encontrado.'});
 });
 
+//Resumo da turma
 app.get('/summary', (req, res) => {
     if (students.length === 0) {
         return res.json({students: [], averages: [], aboveAvg: [], belowAttendance: []});
