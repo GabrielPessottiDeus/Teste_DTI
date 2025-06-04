@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+let id = 0;
+
 app.get('/students', (req, res) => {
     res.json({students});
 });
@@ -13,13 +15,14 @@ app.get('/students', (req, res) => {
 app.post('/students', (req, res) => {
     const {name, grades, attendance} = req.body;
     const average = grades.reduce((a, b) => a + b, 0) / grades.length;
-    students.push({name, grades, attendance, average});
+    students.push({id, name, grades, attendance, average});
+    id++;
     res.status(201).json({message: 'Student added'});
 });
 
-app.delete('/students/:name', (req, res) => {
-    const {name} = req.params;
-    const index = students.findIndex(s => s.name === name);
+app.delete('/students/:id', (req, res) => {
+    const {id} = req.params;
+    const index = students.findIndex(s => s.id === Number.parseInt(id));
     if (index !== -1) {
         students.splice(index, 1);
         return res.json({message: 'Aluno removido.'});

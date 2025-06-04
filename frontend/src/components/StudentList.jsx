@@ -1,9 +1,9 @@
 import api from '../services/api';
 
 export default function StudentList({ students, onUpdate }) {
-    const removeStudent = async (name) => {
+    const removeStudent = async (id) => {
         try {
-            await api.delete(`/students/${name}`);
+            await api.delete(`/students/${id}`);
             onUpdate();
         } catch (err) {
             alert('Erro ao remover aluno');
@@ -16,7 +16,7 @@ export default function StudentList({ students, onUpdate }) {
           {students.map((s, i) => (
             <li key={i}>
               {s.name} - Média: {s.average.toFixed(2)} - Frequência: {s.attendance}%
-              <button className='remove-btn' onClick={() => removeStudent(s.name)}>
+              <button className='remove-btn' onClick={() => removeStudent(s.id)}>
                 Remover Aluno
               </button>
             </li>
