@@ -21,7 +21,7 @@ app.post('/students', (req, res) => {
     res.status(201).json({message: 'Student added'});
 });
 
-//Logica para remocao de alunos da lista usando ID
+//Lógica para remoção de alunos da lista usando ID
 app.delete('/students/:id', (req, res) => {
     const {id} = req.params;
     const index = students.findIndex(s => s.id === Number.parseInt(id));

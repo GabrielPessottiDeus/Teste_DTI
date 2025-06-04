@@ -22,7 +22,7 @@ function App() {
     fetchData();
   }, []);
 
-  //Interface - fetchData para atualizar os dados quando necessario
+  //Interface - fetchData para atualizar os dados quando necessário
   return (
     <div>
       <h1>Sistema de Notas</h1>

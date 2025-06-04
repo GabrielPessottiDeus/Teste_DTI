@@ -95,7 +95,7 @@ student-manager/
 
 ## Premissas e decisões
 
-- Considera-se que o professor pode em algum momento querer remover algum aluno, portanto o projeto inclui um meio de deletar um aluno da lista.
+- Considera-se que o professor pode em algum momento querer remover um aluno, portanto o projeto inclui um meio de deletar um aluno da lista.
 - Atribui-se um ID para cada aluno ao serem criados, de forma a facilitar a procura do aluno quando se deseja remove-lo.
 - Os dados são armazenados apenas em memória (sem banco de dados)
 - A interface foi estilizada apenas com **CSS puro**.

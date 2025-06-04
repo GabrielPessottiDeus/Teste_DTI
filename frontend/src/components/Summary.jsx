@@ -1,5 +1,5 @@
 export default function Summary({ averages, aboveAvg, belowAttendance }) {
-    //Mostra sumario com as informacoes da turma
+    //Mostra sumário com as informações da turma
     return (
       <div className="summary">
         <h3>Média da turma por disciplina</h3>
